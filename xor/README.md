@@ -1,0 +1,3 @@
+##XOR encoding/decoding
+Same mechanism than others, copy the files to webserver, visit the url containing this files and then write the "key" to decrypt and then the string to encode with the key
+It returns an base64 string, but encoded with xor this time...
