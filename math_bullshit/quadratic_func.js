@@ -26,7 +26,7 @@ console.log("xv, yv: (" + xvyv[0] + "," + xvyv[1] + ")");
 console.log("Interception: " + c);
 console.log("Symmetry Axis: " + xvyv[0]);
 if(a < 0) {
-    console.log("Co-domain: R < " + xvyv[1]);
+    console.log("Co-domain: R \u{2264} " + xvyv[1]);
 } else {
-    console.log("Co-domain: R > " + xvyv[1]);
+    console.log("Co-domain: R \u{2265} " + xvyv[1]);
 }
