@@ -1,3 +1,8 @@
+/*
+* Quadratic function example by PANCHO7532
+* Some kind of example for calculate some basic values of a cuadratic function
+* Copyright P7COMunications LLC (c) 2021
+*/
 const process = require('process');
 console.clear();
 var a = Number(process.argv[2]);
