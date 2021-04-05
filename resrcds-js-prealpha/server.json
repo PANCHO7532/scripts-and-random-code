@@ -1,0 +1,10 @@
+{
+    "hostname":"local_svxdddxd",
+    "max_players":32,
+    "game":"hl2mp",
+    "gameName":"ReSRCDS: HL2DM",
+    "map":"dm_lockdown",
+    "sv_servertype":0,
+    "sv_lan":0,
+    "secure":0
+}
