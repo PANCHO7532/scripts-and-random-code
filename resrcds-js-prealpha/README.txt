@@ -32,3 +32,5 @@ What did i do at this time? (05/04/2021): basically this script xd
 
 Altough i do not guarantee that this project will see the surface from their cave someday, i wont discard it as i'm obsessed with Source Engine xD
 Anyway, see ya' round
+
+Oh, almost forgot, if you find something useful here, and you do something cool with it, don't forget to share some credit :D
