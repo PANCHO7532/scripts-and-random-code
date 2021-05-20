@@ -13,5 +13,5 @@ function xorCrypto(file, xorarr) {
     }
     return deobfs_val;
 }
-var a = xorDeobfs(fs.readFileSync("filetobeused.dat").toString(), xorValues);
+var a = xorCrypto(fs.readFileSync("filetobeused.dat").toString(), xorValues);
 console.log(a)
