@@ -1,10 +1,12 @@
 /*
-* /=============================================\
-* | XOR Decoder                                 |
-* | Copyright PANCHO7532 - P7COMunications LLC  |
-* \=============================================/
+* /=================================================\
+* | XOR Decoder                                     |
+* | Copyright (c) PANCHO7532 - P7COMunications LLC  |
+* \=================================================/
 * This utility calculates XOR keys/values by doing a comparison of values
 * Most repeated sequence is probably the correct XOR key/sequence required for decrypt the file.
+* Of course, this script assumes that the data is UTF-8 content, may or may not work with complex binary data.
+* If it's a binary, it will automatically interpreted as UTF-8 content according to Javascript.
 */
 const fs = require('fs');
 const file1 = fs.readFileSync("xorcrypted.dat").toString(); //original file
