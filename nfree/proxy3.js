@@ -11,7 +11,6 @@ var dport = "8080";
 var mainPort = "8888";
 var outputFile = "outputFile.txt";
 var packetsToSkip = 0;
-var ips = [];
 var gcwarn = true;
 for(c = 0; c < process.argv.length; c++) {
     switch(process.argv[c]) {
@@ -55,16 +54,9 @@ function parseRemoteAddr(raddr) {
 setInterval(gcollector, 1000);
 const server = net.createServer();
 server.on('connection', function(socket) {
-    for(let c = 0; c < ips.length; c++) {
-        if(ips[c] == socket.remoteAddress) {
-            require('child_process').execSync("route add -host " + parseRemoteAddr(socket.remoteAddress + " reject"));
-            //socket.destroy();
-        }
-    }
-    ips.push(socket.remoteAddress);
     var packetCount = 0;
     //var handshakeMade = false;
-    socket.write("HTTP/1.1 200 uwu\r\nContent-Length: 1048576000000\r\n\r\nHTTP/1.1 200 Connection Established\r\n\r\n");
+    socket.write("HTTP/1.1 101 Switching Protocols\r\nContent-Length: 1048576000000\r\n\r\n");
     console.log("[INFO] - Connection received from " + socket.remoteAddress + ":" + socket.remotePort);
     var conn = net.createConnection({host: dhost, port: dport});
     socket.on('data', function(data) {
