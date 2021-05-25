@@ -1,7 +1,7 @@
 /*
 * Proxy Bridge
-* Copyright PANCHO7532 - P7COMUnications LLC (c) 2020 [PRIVATE AND CONFIDENTIAL SOFTWARE]
-* Dedicado a Emanuel Miranda, por darme la idea de hacer esto :v
+* Copyright PANCHO7532 - P7COMUnications LLC (c) 2021
+* Dedicated to Emanuel Miranda, for giving me the idea to make this :v
 */
 const net = require('net');
 const stream = require('stream');
