@@ -6,6 +6,7 @@
  * Crypts strings and coming soon, stuff, into XOR.
  * Requires base64.cpp that can be obtained here: https://github.com/ReneNyffenegger/cpp-base64
  * Made on my Android phone under Termux and in half an hour because i was bored
+ * -=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=--=
  */
 #include <iostream>
 #include <string>
