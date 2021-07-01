@@ -1,3 +1,12 @@
+/*
+ * ----------------------------------------------------
+ * xorCryptography
+ * Copyright (c) PANCHO7532 - P7COMunications LLC 2021
+ * -----------------------------------------------------
+ * Crypts strings and coming soon, stuff, into XOR.
+ * Requires base64.cpp that can be obtained here: https://github.com/ReneNyffenegger/cpp-base64
+ * Made on my Android phone under Termux and in half an hour because i was bored
+ */
 #include <iostream>
 #include <string>
 #include "base64.cpp"
