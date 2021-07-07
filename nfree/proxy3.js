@@ -33,7 +33,7 @@ for(c = 0; c < process.argv.length; c++) {
 }
 function gcollector() {
     if(!global.gc && gcwarn) {
-        console.log("[WARNING] - Garbage Collector isn't enabled! Memory leaks may occur.");
+        console.log("[WARNING] Garbage Collector isn't enabled! Memory leaks may occur.");
         gcwarn = false;
         return;
     } else if(global.gc) {
@@ -57,7 +57,7 @@ server.on('connection', function(socket) {
     var packetCount = 0;
     //var handshakeMade = false;
     socket.write("HTTP/1.1 101 Switching Protocols\r\nContent-Length: 1048576000000\r\n\r\n");
-    console.log("[INFO] - Connection received from " + socket.remoteAddress + ":" + socket.remotePort);
+    console.log("[INFO] Connection received from " + socket.remoteAddress + ":" + socket.remotePort);
     var conn = net.createConnection({host: dhost, port: dport});
     socket.on('data', function(data) {
         //pipe sucks
@@ -84,19 +84,25 @@ server.on('connection', function(socket) {
         */
     });
     socket.on('error', function(error) {
-        console.log("[SOCKET] - read " + error + " from " + socket.remoteAddress + ":" + socket.remotePort);
+        console.log("[SOCKET] read " + error + " from " + socket.remoteAddress + ":" + socket.remotePort);
         conn.destroy();
     });
     conn.on('error', function(error) {
-        console.log("[REMOTE] - read " + error);
+        console.log("[REMOTE] read " + error);
         socket.destroy();
     });
     socket.on('close', function() {
-        console.log("[INFO] - Connection terminated for " + socket.remoteAddress + ":" + socket.remotePort);
+        console.log("[INFO] Connection terminated for " + socket.remoteAddress + ":" + socket.remotePort);
         conn.destroy();
     });
 });
+server.on("error", function(error) {
+    console.log("[SRV] Error " + error + ", this may be unrecoverable");
+});
+server.on("close", function() {
+    //conection closed idk, maybe i should not capture this
+});
 server.listen(mainPort, function(){
-    console.log("[INFO] - Server started on port: " + mainPort);
-    console.log("[INFO] - Redirecting requests to: " + dhost + " at port " + dport);
+    console.log("[INFO] Server started on port: " + mainPort);
+    console.log("[INFO] Redirecting requests to: " + dhost + " at port " + dport);
 });
