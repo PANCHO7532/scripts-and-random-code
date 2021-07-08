@@ -56,7 +56,11 @@ const server = net.createServer();
 server.on('connection', function(socket) {
     var packetCount = 0;
     //var handshakeMade = false;
-    socket.write("HTTP/1.1 101 Switching Protocols\r\nContent-Length: 1048576000000\r\n\r\n");
+    socket.write("HTTP/1.1 101 Switching Protocols\r\nContent-Length: 1048576000000\r\n\r\n", function(err) {
+        if(err) {
+            console.log("[SWRITE] Failed to write response to " + socket.remoteAddress + ":" + socket.remotePort + ", error: " + err);
+        }
+    });
     console.log("[INFO] Connection received from " + socket.remoteAddress + ":" + socket.remotePort);
     var conn = net.createConnection({host: dhost, port: dport});
     socket.on('data', function(data) {
@@ -66,7 +70,11 @@ server.on('connection', function(socket) {
             packetCount++;
         } else if(packetCount == packetsToSkip) {
             //console.log("---c2");
-            conn.write(data);
+            conn.write(data, function(err) {
+                if(err) {
+                    console.log("[EWRITE] Failed to write to external socket! - " + err);
+                }
+            });
         }
         if(packetCount > packetsToSkip) {
             //console.log("---c3");
@@ -76,7 +84,11 @@ server.on('connection', function(socket) {
     });
     conn.on('data', function(data) {
         //pipe sucks x2
-        socket.write(data);
+        socket.write(data, function(err) {
+            if(err) {
+                console.log("[SWRITE2] Failed to write response to " + socket.remoteAddress + ":" + socket.remotePort + ", error: " + err);
+            }
+        });
     });
     socket.once('data', function(data) {
         /*
