@@ -1,0 +1,11 @@
+[Unit]
+Description=BadVPN UDPGW Service
+
+[Service]
+User=root
+WorkingDirectory=/root
+ExecStart=badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 250 --max-connections-for-client 3
+ExecStop=pkill badvpn-udpgw
+
+[Install]
+WantedBy=multi-user.target
